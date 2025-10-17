@@ -1,0 +1,14 @@
+C:\Users\romancampbell\source\repos\StudentGradeCalc\StudentGradeCalc\obj\Debug\net8.0\StudentGradeCalc.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\romancampbell\source\repos\StudentGradeCalc\StudentGradeCalc\obj\Debug\net8.0\StudentGradeCalc.AssemblyInfoInputs.cache
+C:\Users\romancampbell\source\repos\StudentGradeCalc\StudentGradeCalc\obj\Debug\net8.0\StudentGradeCalc.AssemblyInfo.cs
+C:\Users\romancampbell\source\repos\StudentGradeCalc\StudentGradeCalc\obj\Debug\net8.0\StudentGradeCalc.csproj.CoreCompileInputs.cache
+C:\Users\romancampbell\source\repos\StudentGradeCalc\StudentGradeCalc\bin\Debug\net8.0\StudentGradeCalc.exe
+C:\Users\romancampbell\source\repos\StudentGradeCalc\StudentGradeCalc\bin\Debug\net8.0\StudentGradeCalc.deps.json
+C:\Users\romancampbell\source\repos\StudentGradeCalc\StudentGradeCalc\bin\Debug\net8.0\StudentGradeCalc.runtimeconfig.json
+C:\Users\romancampbell\source\repos\StudentGradeCalc\StudentGradeCalc\bin\Debug\net8.0\StudentGradeCalc.dll
+C:\Users\romancampbell\source\repos\StudentGradeCalc\StudentGradeCalc\bin\Debug\net8.0\StudentGradeCalc.pdb
+C:\Users\romancampbell\source\repos\StudentGradeCalc\StudentGradeCalc\obj\Debug\net8.0\StudentGradeCalc.dll
+C:\Users\romancampbell\source\repos\StudentGradeCalc\StudentGradeCalc\obj\Debug\net8.0\refint\StudentGradeCalc.dll
+C:\Users\romancampbell\source\repos\StudentGradeCalc\StudentGradeCalc\obj\Debug\net8.0\StudentGradeCalc.pdb
+C:\Users\romancampbell\source\repos\StudentGradeCalc\StudentGradeCalc\obj\Debug\net8.0\StudentGradeCalc.genruntimeconfig.cache
+C:\Users\romancampbell\source\repos\StudentGradeCalc\StudentGradeCalc\obj\Debug\net8.0\ref\StudentGradeCalc.dll

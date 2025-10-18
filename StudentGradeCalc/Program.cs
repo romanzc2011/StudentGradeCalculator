@@ -57,10 +57,17 @@ foreach (var (code, (name, credits)) in studentRecord)
 gradePointAvg = (float)totalEarnedCredits / (float)totalCreditHrs;
 
 // Final Print out
+
+Console.WriteLine("\n\n\n============== GRADE REPORT ================");
 Console.WriteLine($"Student: {studentName}\n");
 Console.WriteLine("Course\t\t\tGrade\tCredit Hours");
+Console.WriteLine(new string('-', 44));
 foreach (var (code, (cName, credits)) in studentRecord)
 {
-    Console.WriteLine($"{studentRecord[code].CourseName, -15} ");
+    Console.WriteLine(
+        $"{studentRecord[code].CourseName, -25} " +
+        $"{gradeWeight[studentGrades[code]], -8}" +
+        $"{studentRecord[code].Credits}"
+    );
 }
-
+Console.WriteLine($"\nFinal GPA: {gradePointAvg,19:F2}");

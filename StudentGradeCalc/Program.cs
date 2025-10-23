@@ -1,13 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Linq;
+using System.IO;
+using System.Text;
 
 int totalCreditHrs = 0;
 int totalEarnedCredits = 0;
 float gradePointAvg = 0;
-string studentName = "Sophia Johnson";
+var studentName = "";
 
+try
+{
+    if (!File.Exists("../../../../students.txt"))
+    {
+        throw new FileNotFoundException("The students.txt file was not found.");
+    }
+
+    // *Read student names from file */
+    const Int32 BufferSize = 512;
+    using(var fs = File.OpenRead("../../../../students.txt"))
+    {
+        using(var sr = new StreamReader(fs, Encoding.UTF8, true, BufferSize))
+        {
+            String line;
+            while((line = sr.ReadLine()) != null)
+            {
+                studentName = line.Trim();
+                Console.WriteLine($"STUDENT NAME: {studentName}");
+            }
+        }
+    }
+} catch (FileNotFoundException ex)
+{
+    Console.WriteLine(ex.Message);
+    return;
+}
+
+// ******************************************************************************
+// ** MAIN PROGRAM LOGIC
+// ******************************************************************************
 var studentRecord = new Dictionary<string, (string CourseName, int Credits)>
 {
     { "ENG100", ("English 101",         3) },

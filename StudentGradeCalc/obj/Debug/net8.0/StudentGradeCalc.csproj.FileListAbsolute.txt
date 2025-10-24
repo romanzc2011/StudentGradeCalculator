@@ -27,3 +27,4 @@ C:\Users\roman\source\repos\StudentGradeCalculator\StudentGradeCalc\obj\Debug\ne
 C:\Users\roman\source\repos\StudentGradeCalculator\StudentGradeCalc\obj\Debug\net8.0\StudentGradeCalc.pdb
 C:\Users\roman\source\repos\StudentGradeCalculator\StudentGradeCalc\obj\Debug\net8.0\StudentGradeCalc.genruntimeconfig.cache
 C:\Users\roman\source\repos\StudentGradeCalculator\StudentGradeCalc\obj\Debug\net8.0\ref\StudentGradeCalc.dll
+C:\Users\romancampbell\source\repos\StudentGradeCalc\StudentGradeCalc\obj\Debug\net8.0\StudentGradeCalc.sourcelink.json

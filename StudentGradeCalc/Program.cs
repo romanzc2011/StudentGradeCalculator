@@ -4,30 +4,31 @@ using System.Linq;
 using System.IO;
 using System.Text;
 using GradeList = System.Collections.Generic.List<float>;
-using System.Net.Http.Headers;
 
 int totalCreditHrs = 0;
 int totalEarnedCredits = 0;
 float gradePointAvg = 0;
+float gradesSum = 0;
+string letterGrade = "";
+string sName = "";
 
-var studentGrades = new Dictionary<string, GradeList>();
-var gradeScale = new Dictionary<string, IEnumerable<int>>
+var studentGrades = new Dictionary<string, (GradeList Grades, float GradesSum, float GradeAvg, string LetterGrade)>();
+var gradeScale = new Dictionary<string, IEnumerable<float>>
 {
-    { "A+", Enumerable.Range(97, 4) },  // 97–100
-    { "A",  Enumerable.Range(93, 4) },  // 93–96
-    { "A-", Enumerable.Range(90, 3) },  // 90–92
-    { "B+", Enumerable.Range(87, 3) },  // 87–89
-    { "B",  Enumerable.Range(83, 4) },  // 83–86
-    { "B-", Enumerable.Range(80, 3) },  // 80–82
-    { "C+", Enumerable.Range(77, 3) },  // 77–79
-    { "C",  Enumerable.Range(73, 4) },  // 73–76
-    { "C-", Enumerable.Range(70, 3) },  // 70–72
-    { "D+", Enumerable.Range(67, 3) },  // 67–69
-    { "D",  Enumerable.Range(63, 4) },  // 63–66
-    { "D-", Enumerable.Range(60, 3) },  // 60–62
-    { "F",  Enumerable.Range(0, 60) }   // 0–59
+    { "A+", Enumerable.Range(97, 4).Select(i => (float)i) },  // 97–100
+    { "A",  Enumerable.Range(93, 4).Select(i => (float)i) },  // 93–96
+    { "A-", Enumerable.Range(90, 3).Select(i => (float)i) },  // 90–92
+    { "B+", Enumerable.Range(87, 3).Select(i => (float)i) },  // 87–89
+    { "B",  Enumerable.Range(83, 4).Select(i => (float)i) },  // 83–86
+    { "B-", Enumerable.Range(80, 3).Select(i => (float)i) },  // 80–82
+    { "C+", Enumerable.Range(77, 3).Select(i => (float)i) },  // 77–79
+    { "C",  Enumerable.Range(73, 4).Select(i => (float)i) },  // 73–76
+    { "C-", Enumerable.Range(70, 3).Select(i => (float)i) },  // 70–72
+    { "D+", Enumerable.Range(67, 3).Select(i => (float)i) },  // 67–69
+    { "D",  Enumerable.Range(63, 4).Select(i => (float)i) },  // 63–66
+    { "D-", Enumerable.Range(60, 3).Select(i => (float)i) },  // 60–62
+    { "F",  Enumerable.Range(0, 60).Select(i => (float)i) }   // 0–59
 };
-
 
 try
 {
@@ -53,9 +54,10 @@ try
                     continue;
                 }
 
+                // Separate parts of student records
                 var parts = line.Split(':');
                 string studentName = parts[0].Trim();
-                string[] gradesStr = parts[1].Trim().Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                string[] gradesStr = parts[1].Trim().Split(delimiters, StringSplitOptions.RemoveEmptyEntries); // These are the individual grades to be converted to float
 
                 var grades = new List<float>();
 
@@ -68,43 +70,27 @@ try
                         grades.Add(value);
                     }
                 }
-                // Now add all the grades to their respective student
-                studentGrades[studentName] = grades;
+
+                float gSum = grades.Sum();
+                float avg = gSum / grades.Count();
+
+                // Get proper letter grade corresponding with numerical value
+                var match = gradeScale.FirstOrDefault(g =>
+                {
+                    float min = g.Value.Min();
+                    float max = g.Value.Max();
+                    return avg >= min && avg <= max;
+                });
+
+                letterGrade = match.Key != null ? match.Key : "Unknown";
+                Console.WriteLine($"Name: {studentName} : {letterGrade}");
             }
         }
         
-        foreach (var (name, g) in studentGrades)
-        {
-            Console.WriteLine($"{name}: {string.Join(", ", g)}");
-        }
+        
     }
 } catch (FileNotFoundException ex)
 {
     Console.WriteLine(ex.Message);
     return;
 }
-
-// ******************************************************************************
-// ** MAIN PROGRAM LOGIC
-// ******************************************************************************
-bool keepRunning = true;
-
-while(keepRunning)
-{
-    Console.WriteLine("Continue running... ?");
-    string decision = Console.ReadLine().Trim().ToLower();
-
-    if (decision == "exit") break;
-
-    studentGrades.ToList().ForEach(g =>
-    {
-        var studentName = g.Key;
-        var grades = g.Value;
-        Console.WriteLine($"{studentName}:");
-        grades.ForEach(grade =>
-        {
-            Console.WriteLine($"   Grade: {grade}");
-        });
-    });
-}
-

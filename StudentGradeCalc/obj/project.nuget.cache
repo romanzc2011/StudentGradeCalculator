@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "3vVmT+xq6Mg=",
+  "dgSpecHash": "xuj0dgaTuGY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\roman\\source\\repos\\StudentGradeCalculator\\StudentGradeCalc\\StudentGradeCalc.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\romancampbell\\source\\repos\\StudentGradeCalc\\StudentGradeCalc\\StudentGradeCalc.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\romancampbell\\.nuget\\packages\\microsoft.net.sdk.compilers.toolset\\9.0.306\\microsoft.net.sdk.compilers.toolset.9.0.306.nupkg.sha512",
+    "C:\\Users\\romancampbell\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.21\\microsoft.windowsdesktop.app.ref.8.0.21.nupkg.sha512",
+    "C:\\Users\\romancampbell\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.21\\microsoft.netcore.app.ref.8.0.21.nupkg.sha512",
+    "C:\\Users\\romancampbell\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.21\\microsoft.aspnetcore.app.ref.8.0.21.nupkg.sha512",
+    "C:\\Users\\romancampbell\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.21\\microsoft.netcore.app.host.win-x64.8.0.21.nupkg.sha512"
+  ],
   "logs": []
 }

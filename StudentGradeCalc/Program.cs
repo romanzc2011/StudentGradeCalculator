@@ -4,7 +4,7 @@ using System.Linq;
 using System.IO;
 using System.Text;
 using GradeList = System.Collections.Generic.List<float>;
-
+using System.Net.Http.Headers;
 
 int totalCreditHrs = 0;
 int totalEarnedCredits = 0;
@@ -95,5 +95,16 @@ while(keepRunning)
     string decision = Console.ReadLine().Trim().ToLower();
 
     if (decision == "exit") break;
+
+    studentGrades.ToList().ForEach(g =>
+    {
+        var studentName = g.Key;
+        var grades = g.Value;
+        Console.WriteLine($"{studentName}:");
+        grades.ForEach(grade =>
+        {
+            Console.WriteLine($"   Grade: {grade}");
+        });
+    });
 }
 
